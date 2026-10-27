@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Virtual Null-Modem Cable & Serial Port Pairs for Windows | SerialLoom</title>
+<meta name="description" content="Connect two Windows programs through a virtual null-modem cable. SerialLoom creates paired virtual COM ports (like COM30 ⇄ COM31) for testing serial software. Free, no test mode.">
+<link rel="canonical" href="https://www.serialloom.com/virtual-null-modem/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="author" content="Rahul Pachpind">
+<meta name="theme-color" content="#070a14" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f7f8fc" media="(prefers-color-scheme: light)">
+<meta name="color-scheme" content="dark light">
+<link rel="icon" href="/assets/img/logo.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SerialLoom">
+<meta property="og:title" content="Virtual Null-Modem Cable &amp; Serial Port Pairs for Windows | SerialLoom">
+<meta property="og:description" content="Connect two Windows programs through a virtual null-modem cable. SerialLoom creates paired virtual COM ports (like COM30 ⇄ COM31) for testing serial software. Free, no test mode.">
+<meta property="og:url" content="https://www.serialloom.com/virtual-null-modem/">
+<meta property="og:image" content="https://www.serialloom.com/assets/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SerialLoom: virtual COM ports for Windows with a live visual editor">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Virtual Null-Modem Cable &amp; Serial Port Pairs for Windows | SerialLoom">
+<meta name="twitter:description" content="Connect two Windows programs through a virtual null-modem cable. SerialLoom creates paired virtual COM ports (like COM30 ⇄ COM31) for testing serial software. Free, no test mode.">
+<meta name="twitter:image" content="https://www.serialloom.com/assets/img/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/css/site.css">
+<script src="/assets/js/site.js" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.serialloom.com/"},{"@type":"ListItem","position":2,"name":"Virtual null-modem pairs","item":"https://www.serialloom.com/virtual-null-modem/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"A virtual null-modem cable for Windows","description":"Connect two Windows programs through a virtual null-modem cable. SerialLoom creates paired virtual COM ports (like COM30 ⇄ COM31) for testing serial software. Free, no test mode.","url":"https://www.serialloom.com/virtual-null-modem/","datePublished":"2026-10-27","dateModified":"2026-10-27","author":{"@type":"Person","name":"Rahul Pachpind","url":"https://github.com/RahulP5"},"publisher":{"@type":"Person","name":"Rahul Pachpind","url":"https://github.com/RahulP5"},"image":"https://www.serialloom.com/assets/img/og-image.png","about":{"@type":"SoftwareApplication","name":"SerialLoom","operatingSystem":"Windows 10, Windows 11","applicationCategory":"DeveloperApplication"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is this the same as com0com?","acceptedAnswer":{"@type":"Answer","text":"It serves the same purpose as com0com's paired ports, but runs on 64-bit Windows 10 and 11 without test-signing mode and adds a visual editor, splitting and TCP bridging. Full comparison."}},{"@type":"Question","name":"Can I choose the COM numbers of the pair?","acceptedAnswer":{"@type":"Answer","text":"Yes. Pick the numbers when you create the pair, or use Change number later."}},{"@type":"Question","name":"Do both programs need to use the same baud rate?","acceptedAnswer":{"@type":"Answer","text":"No. Virtual ports do not slow data down to the baud rate, so the programs exchange data even with different settings. The topology shows each program's setting in case the real device will care."}}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <nav class="wrap nav" aria-label="Main">
+    <a class="brand" href="/" aria-label="SerialLoom home"><img src="/assets/img/logo.svg" alt="" width="32" height="32">SerialLoom</a>
+    <ul class="nav-links">
+      <li><a href="/#features">Features</a></li>
+      <li><a href="/#use-cases">Use cases</a></li>
+      <li><a href="/docs/">Guide</a></li>
+      <li><a href="/com0com-alternative/">Compare</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a class="btn btn-ghost btn-sm" href="https://github.com/RahulP5/SerialLoom" rel="noopener" aria-label="SerialLoom on GitHub"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" style="fill:currentColor;stroke:none"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.69 1.25 3.35.96.1-.74.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.18 1.83 1.18 3.09 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg><span>GitHub</span></a>
+      <a class="btn btn-primary btn-sm" href="/download/"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg><span>Download<span class="long"> free</span></span></a>
+    </div>
+    <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><line x1="4" x2="20" y1="7" y2="7"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="17" y2="17"/></svg></button>
+  </nav>
+</header>
+<main id="main">
+<section class="page-hero">
+  <div class="wrap">
+    <ol class="crumbs"><li><a href="/">Home</a></li><li aria-current="page">Virtual null-modem pairs</li></ol>
+    <h1>A virtual null-modem cable for Windows</h1>
+    <p class="lead">Create two virtual COM ports wired together, so two programs on the same PC can talk as if a serial cable connected them.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="https://github.com/RahulP5/SerialLoom/releases/latest" data-download><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg><span>Download for Windows</span></a>
+      <a class="btn btn-ghost" href="/docs/"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></svg><span>Read the guide</span></a>
+    </div>
+  </div>
+</section>
+<div class="wrap article">
+  <article class="prose">
+<h2>What is a virtual null-modem?</h2>
+<p>A <strong>null-modem cable</strong> connects two serial ports directly, crossing the transmit and receive lines so that what one side sends, the other receives. A <strong>virtual null-modem</strong> (or virtual serial port pair) does the same thing in software: it creates two COM ports, and every byte written to one comes out of the other.</p>
+<p>It is the standard way to test serial software without hardware: connect your application to a device simulator, a terminal, or a test script, all on one PC.</p>
+
+<h2>Create a virtual serial port pair</h2>
+<ol>
+  <li><a href="/download/">Install SerialLoom</a>.</li>
+  <li>Press <strong>Virtual pair</strong> in the toolbar of the topology view (or <strong>New pair</strong> under <em>Virtual ports</em>).</li>
+  <li>SerialLoom creates two virtual ports, for example <code>COM30</code> and <code>COM31</code>, and connects them.</li>
+  <li>Open <code>COM30</code> in one program and <code>COM31</code> in the other. Type in one, read in the other.</li>
+</ol>
+
+<figure class="shot reveal">
+  <div class="shot-frame">
+    <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><em>SerialLoom</em></div>
+    <picture>
+      <source media="(prefers-color-scheme: light)" type="image/webp" srcset="/assets/img/inspector-light-960.webp 960w, /assets/img/inspector-light-1600.webp 1600w, /assets/img/inspector-light-2880.webp 2880w" sizes="(min-width: 1200px) 1120px, 100vw">
+      <img src="/assets/img/inspector-dark-1600.webp" srcset="/assets/img/inspector-dark-960.webp 960w, /assets/img/inspector-dark-1600.webp 1600w, /assets/img/inspector-dark-2880.webp 2880w" sizes="(min-width: 1200px) 1120px, 100vw" width="1440" height="900" alt="SerialLoom topology with a virtual null-modem pair COM30 and COM31 and the traffic monitor" loading="lazy" decoding="async">
+    </picture>
+  </div>
+</figure>
+
+<h2>Typical uses</h2>
+<ul>
+  <li><strong>Developing serial software:</strong> run your application against a simulator script instead of a real instrument, PLC or modem.</li>
+  <li><strong>Automated tests:</strong> drive a COM-port-based program from pySerial, .NET or Node in CI or on your desktop.</li>
+  <li><strong>Connecting two legacy programs:</strong> link a program that outputs data on a COM port to one that reads data from a COM port.</li>
+  <li><strong>Simulating devices:</strong> replay recorded NMEA, Modbus RTU or barcode scanner data into the software under test.</li>
+  <li><strong>Learning and teaching:</strong> experiment with serial protocols with two terminal windows and no wiring.</li>
+</ul>
+
+<h2>See what passes between the programs</h2>
+<p>Click the pair's connection to open the inspector. The traffic monitor shows every chunk of data with a timestamp and the port that sent it, in ASCII or hex. The topology also shows the baud rate and framing each program chose, so you can spot a mismatched setting at a glance.</p>
+
+<h2>More than a pair</h2>
+<p>A pair is a bridge between two virtual ports. The same canvas also lets you build larger setups:</p>
+<ul>
+  <li>Add a third program with a <a href="/docs/#bus">bus</a>, where every port hears every other.</li>
+  <li>Put a real device in the middle with a <a href="/serial-port-splitter/">split</a>, so your app and a logger both see its data.</li>
+  <li>Move one end of the pair to another PC with a <a href="/serial-to-tcp/">TCP bridge</a>.</li>
+</ul>
+
+<div class="callout"><p><strong>Good to know:</strong> data passes between the two ports at full speed regardless of the baud rate either program sets. Mirroring baud rate and the DTR/RTS lines to the other side is on the <a href="https://github.com/RahulP5/SerialLoom#roadmap" rel="noopener">roadmap</a>.</p></div>
+<h2 id="faq">Questions</h2>
+<div class="faq">
+  <details>
+    <summary>Is this the same as com0com?</summary>
+    <div class="answer"><p>It serves the same purpose as com0com's paired ports, but runs on 64-bit Windows 10 and 11 without test-signing mode and adds a visual editor, splitting and TCP bridging. <a href="/com0com-alternative/">Full comparison</a>.</p></div>
+  </details>
+  <details>
+    <summary>Can I choose the COM numbers of the pair?</summary>
+    <div class="answer"><p>Yes. Pick the numbers when you create the pair, or use <em>Change number</em> later.</p></div>
+  </details>
+  <details>
+    <summary>Do both programs need to use the same baud rate?</summary>
+    <div class="answer"><p>No. Virtual ports do not slow data down to the baud rate, so the programs exchange data even with different settings. The topology shows each program's setting in case the real device will care.</p></div>
+  </details>
+</div>
+  </article>
+  <aside class="aside" aria-label="More">
+    <div class="card">
+      <h4>Get SerialLoom</h4>
+      <p>Free and open source for Windows 10 and 11. Latest <span data-version>v0.1.1</span>.</p>
+      <a class="btn btn-primary" href="https://github.com/RahulP5/SerialLoom/releases/latest" data-download><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg><span>Download</span></a>
+    </div>
+    <div class="card">
+      <h4>Related</h4>
+      <ul>
+        <li><a href="/virtual-com-port-windows/">Virtual COM ports</a></li>
+        <li><a href="/serial-port-splitter/">Serial port splitter</a></li>
+        <li><a href="/serial-to-tcp/">Serial to TCP/IP</a></li>
+        <li><a href="/com0com-alternative/">com0com alternative</a></li>
+        <li><a href="/docs/">Getting started guide</a></li>
+      </ul>
+    </div>
+  </aside>
+</div>
+<section class="section" aria-labelledby="cta-title">
+  <div class="wrap">
+    <div class="cta reveal">
+      <h2 id="cta-title">Weave your serial ports together</h2>
+      <p>Free and open source. One installer, no test mode, no extra drivers to hunt down.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary btn-lg" href="https://github.com/RahulP5/SerialLoom/releases/latest" data-download><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg><span>Download for Windows</span></a>
+        <a class="btn btn-ghost btn-lg" href="https://github.com/RahulP5/SerialLoom" rel="noopener"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" style="fill:currentColor;stroke:none"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.69 1.25 3.35.96.1-.74.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.18 1.83 1.18 3.09 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg><span>View source on GitHub</span></a>
+      </div>
+      <p class="small">Latest <span data-version>v0.1.1</span> · Windows 10 (1803+) and Windows 11, x64 · MIT license</p>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="/"><img src="/assets/img/logo.svg" alt="" width="32" height="32">SerialLoom</a>
+        <p>Free, open-source virtual COM port software for Windows 10 and 11. Create, pair, split, join and bridge serial ports in a live visual editor.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/#features">Features</a></li>
+          <li><a href="/download/">Download</a></li>
+          <li><a href="/docs/">Getting started guide</a></li>
+          <li><a href="/#faq">FAQ</a></li>
+          <li><a href="https://github.com/RahulP5/SerialLoom/releases" rel="noopener">Release notes</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Solutions</h4>
+        <ul>
+          <li><a href="/virtual-com-port-windows/">Virtual COM ports</a></li>
+          <li><a href="/virtual-null-modem/">Virtual null-modem pairs</a></li>
+          <li><a href="/serial-port-splitter/">Serial port splitter</a></li>
+          <li><a href="/serial-to-tcp/">Serial to TCP/IP</a></li>
+          <li><a href="/com0com-alternative/">com0com alternative</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Project</h4>
+        <ul>
+          <li><a href="https://github.com/RahulP5/SerialLoom" rel="noopener">Source code</a></li>
+          <li><a href="https://github.com/RahulP5/SerialLoom/issues" rel="noopener">Report a bug</a></li>
+          <li><a href="https://github.com/RahulP5/SerialLoom/blob/main/SECURITY.md" rel="noopener">Security policy</a></li>
+          <li><a href="https://github.com/RahulP5/SerialLoom/blob/main/LICENSE" rel="noopener">MIT license</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> <a href="https://github.com/RahulP5" rel="noopener">Rahul Pachpind</a>. SerialLoom is open source under the MIT license.</span>
+      <span>Windows is a trademark of the Microsoft group of companies.</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

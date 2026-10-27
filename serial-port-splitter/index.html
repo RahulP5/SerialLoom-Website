@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Serial Port Splitter: Share One COM Port Between Apps | SerialLoom</title>
+<meta name="description" content="Open the same COM port in several programs at once. SerialLoom splits one serial port (GPS, Arduino, sensor) into multiple virtual COM ports on Windows 10 and 11. Free.">
+<link rel="canonical" href="https://www.serialloom.com/serial-port-splitter/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="author" content="Rahul Pachpind">
+<meta name="theme-color" content="#070a14" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f7f8fc" media="(prefers-color-scheme: light)">
+<meta name="color-scheme" content="dark light">
+<link rel="icon" href="/assets/img/logo.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SerialLoom">
+<meta property="og:title" content="Serial Port Splitter: Share One COM Port Between Apps | SerialLoom">
+<meta property="og:description" content="Open the same COM port in several programs at once. SerialLoom splits one serial port (GPS, Arduino, sensor) into multiple virtual COM ports on Windows 10 and 11. Free.">
+<meta property="og:url" content="https://www.serialloom.com/serial-port-splitter/">
+<meta property="og:image" content="https://www.serialloom.com/assets/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SerialLoom: virtual COM ports for Windows with a live visual editor">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Serial Port Splitter: Share One COM Port Between Apps | SerialLoom">
+<meta name="twitter:description" content="Open the same COM port in several programs at once. SerialLoom splits one serial port (GPS, Arduino, sensor) into multiple virtual COM ports on Windows 10 and 11. Free.">
+<meta name="twitter:image" content="https://www.serialloom.com/assets/img/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/css/site.css">
+<script src="/assets/js/site.js" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.serialloom.com/"},{"@type":"ListItem","position":2,"name":"Serial port splitter","item":"https://www.serialloom.com/serial-port-splitter/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Share one COM port between several programs","description":"Open the same COM port in several programs at once. SerialLoom splits one serial port (GPS, Arduino, sensor) into multiple virtual COM ports on Windows 10 and 11. Free.","url":"https://www.serialloom.com/serial-port-splitter/","datePublished":"2026-10-27","dateModified":"2026-10-27","author":{"@type":"Person","name":"Rahul Pachpind","url":"https://github.com/RahulP5"},"publisher":{"@type":"Person","name":"Rahul Pachpind","url":"https://github.com/RahulP5"},"image":"https://www.serialloom.com/assets/img/og-image.png","about":{"@type":"SoftwareApplication","name":"SerialLoom","operatingSystem":"Windows 10, Windows 11","applicationCategory":"DeveloperApplication"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I add or remove programs later?","acceptedAnswer":{"@type":"Answer","text":"Yes. Select the split and use Add endpoint, or remove an endpoint, while data keeps flowing."}},{"@type":"Question","name":"Does splitting work with USB-to-serial adapters and Bluetooth serial ports?","acceptedAnswer":{"@type":"Answer","text":"Yes. Any COM port Windows lists, built-in, USB (FTDI, CH340, CP210x, Prolific) or Bluetooth SPP, can be the source of a split."}},{"@type":"Question","name":"Will the split start automatically?","acceptedAnswer":{"@type":"Answer","text":"Connections are saved. Enable Start when SerialLoom opens on the split and it starts every time SerialLoom runs."}}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <nav class="wrap nav" aria-label="Main">
+    <a class="brand" href="/" aria-label="SerialLoom home"><img src="/assets/img/logo.svg" alt="" width="32" height="32">SerialLoom</a>
+    <ul class="nav-links">
+      <li><a href="/#features">Features</a></li>
+      <li><a href="/#use-cases">Use cases</a></li>
+      <li><a href="/docs/">Guide</a></li>
+      <li><a href="/com0com-alternative/">Compare</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a class="btn btn-ghost btn-sm" href="https://github.com/RahulP5/SerialLoom" rel="noopener" aria-label="SerialLoom on GitHub"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" style="fill:currentColor;stroke:none"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.69 1.25 3.35.96.1-.74.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.18 1.83 1.18 3.09 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg><span>GitHub</span></a>
+      <a class="btn btn-primary btn-sm" href="/download/"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg><span>Download<span class="long"> free</span></span></a>
+    </div>
+    <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><line x1="4" x2="20" y1="7" y2="7"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="17" y2="17"/></svg></button>
+  </nav>
+</header>
+<main id="main">
+<section class="page-hero">
+  <div class="wrap">
+    <ol class="crumbs"><li><a href="/">Home</a></li><li aria-current="page">Serial port splitter</li></ol>
+    <h1>Share one COM port between several programs</h1>
+    <p class="lead">Windows lets only one program open a serial port. SerialLoom's splitter gives every program its own virtual COM port, all connected to the same device.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="https://github.com/RahulP5/SerialLoom/releases/latest" data-download><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg><span>Download for Windows</span></a>
+      <a class="btn btn-ghost" href="/docs/"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></svg><span>Read the guide</span></a>
+    </div>
+  </div>
+</section>
+<div class="wrap article">
+  <article class="prose">
+<h2>The problem: “Access denied” on a COM port</h2>
+<p>When a program opens a serial port, Windows gives it exclusive access. Start a second program on the same port and it fails with <em>Access is denied</em> or <em>port in use</em>. That is a problem when one device needs to feed several programs: a GPS that both a chart plotter and a logger need, or an Arduino you want to watch in the serial monitor while a script records its output.</p>
+
+<h2>The fix: split the port</h2>
+<p>A <strong>serial port splitter</strong> opens the real port once and shares it through several virtual ports. Each program opens its own virtual port, so none of them get in each other's way.</p>
+<ol>
+  <li><a href="/download/">Install SerialLoom</a>.</li>
+  <li>In the topology view, drag the real port (for example <code>COM3</code>) from the port list onto the canvas.</li>
+  <li>Choose <strong>Split</strong>. Keep the “New virtual port” outputs, add more if you need them, and press <strong>Create split</strong>.</li>
+  <li>Point each program at one of the new ports, such as <code>COM20</code>, <code>COM21</code> and <code>COM22</code>.</li>
+</ol>
+
+<figure class="shot reveal">
+  <div class="shot-frame">
+    <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><em>SerialLoom</em></div>
+    <picture>
+      <source media="(prefers-color-scheme: light)" type="image/webp" srcset="/assets/img/topology-light-960.webp 960w, /assets/img/topology-light-1600.webp 1600w, /assets/img/topology-light-2880.webp 2880w" sizes="(min-width: 1200px) 1120px, 100vw">
+      <img src="/assets/img/topology-dark-1600.webp" srcset="/assets/img/topology-dark-960.webp 960w, /assets/img/topology-dark-1600.webp 1600w, /assets/img/topology-dark-2880.webp 2880w" sizes="(min-width: 1200px) 1120px, 100vw" width="1440" height="900" alt="A GPS on COM3 split into virtual ports COM20, COM21 and COM22 in SerialLoom" loading="lazy" decoding="async">
+    </picture>
+  </div>
+  <figcaption>COM3 (the real GPS) is opened once by SerialLoom and shared through three virtual ports.</figcaption>
+</figure>
+
+<h2>How data flows</h2>
+<ul>
+  <li><strong>From the device:</strong> everything the real port receives is copied to every virtual port.</li>
+  <li><strong>To the device:</strong> what any program writes to its virtual port is sent to the real device.</li>
+  <li><strong>Baud rate:</strong> the real port runs at the speed you set for it in SerialLoom. Programs on the virtual ports can choose any setting; their data is not slowed down.</li>
+</ul>
+<p>Splitting works best when one program does the talking and the others listen. If several programs send commands at the same moment, the device receives them in the order they arrive.</p>
+
+<h2>Popular uses</h2>
+<ul>
+  <li><strong>GPS and NMEA 0183:</strong> share a USB or serial GPS between navigation software, a track logger and AIS or weather apps.</li>
+  <li><strong>Arduino, ESP32 and microcontrollers:</strong> keep the serial monitor open while a Python script or data logger reads the same stream.</li>
+  <li><strong>Lab instruments and scales:</strong> send readings to your data acquisition software and a backup logger at once.</li>
+  <li><strong>Barcode and RFID readers:</strong> feed scans to more than one application.</li>
+  <li><strong>Debugging:</strong> eavesdrop on a device's traffic with the built-in traffic monitor while your normal software keeps working.</li>
+</ul>
+
+<h2>Join: the opposite direction</h2>
+<p>Need one program to read from several devices? A <strong>Join</strong> merges several ports into a single virtual port. Drag the ports onto the canvas, choose <em>Join</em>, and open the joined port in your program.</p>
+<h2 id="faq">Questions</h2>
+<div class="faq">
+  <details>
+    <summary>Can I add or remove programs later?</summary>
+    <div class="answer"><p>Yes. Select the split and use <em>Add endpoint</em>, or remove an endpoint, while data keeps flowing.</p></div>
+  </details>
+  <details>
+    <summary>Does splitting work with USB-to-serial adapters and Bluetooth serial ports?</summary>
+    <div class="answer"><p>Yes. Any COM port Windows lists, built-in, USB (FTDI, CH340, CP210x, Prolific) or Bluetooth SPP, can be the source of a split.</p></div>
+  </details>
+  <details>
+    <summary>Will the split start automatically?</summary>
+    <div class="answer"><p>Connections are saved. Enable <em>Start when SerialLoom opens</em> on the split and it starts every time SerialLoom runs.</p></div>
+  </details>
+</div>
+  </article>
+  <aside class="aside" aria-label="More">
+    <div class="card">
+      <h4>Get SerialLoom</h4>
+      <p>Free and open source for Windows 10 and 11. Latest <span data-version>v0.1.1</span>.</p>
+      <a class="btn btn-primary" href="https://github.com/RahulP5/SerialLoom/releases/latest" data-download><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg><span>Download</span></a>
+    </div>
+    <div class="card">
+      <h4>Related</h4>
+      <ul>
+        <li><a href="/virtual-com-port-windows/">Virtual COM ports</a></li>
+        <li><a href="/virtual-null-modem/">Virtual null-modem pairs</a></li>
+        <li><a href="/serial-to-tcp/">Serial to TCP/IP</a></li>
+        <li><a href="/com0com-alternative/">com0com alternative</a></li>
+        <li><a href="/docs/">Getting started guide</a></li>
+      </ul>
+    </div>
+  </aside>
+</div>
+<section class="section" aria-labelledby="cta-title">
+  <div class="wrap">
+    <div class="cta reveal">
+      <h2 id="cta-title">Weave your serial ports together</h2>
+      <p>Free and open source. One installer, no test mode, no extra drivers to hunt down.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary btn-lg" href="https://github.com/RahulP5/SerialLoom/releases/latest" data-download><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg><span>Download for Windows</span></a>
+        <a class="btn btn-ghost btn-lg" href="https://github.com/RahulP5/SerialLoom" rel="noopener"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" style="fill:currentColor;stroke:none"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.69 1.25 3.35.96.1-.74.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.18 1.83 1.18 3.09 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg><span>View source on GitHub</span></a>
+      </div>
+      <p class="small">Latest <span data-version>v0.1.1</span> · Windows 10 (1803+) and Windows 11, x64 · MIT license</p>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="/"><img src="/assets/img/logo.svg" alt="" width="32" height="32">SerialLoom</a>
+        <p>Free, open-source virtual COM port software for Windows 10 and 11. Create, pair, split, join and bridge serial ports in a live visual editor.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/#features">Features</a></li>
+          <li><a href="/download/">Download</a></li>
+          <li><a href="/docs/">Getting started guide</a></li>
+          <li><a href="/#faq">FAQ</a></li>
+          <li><a href="https://github.com/RahulP5/SerialLoom/releases" rel="noopener">Release notes</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Solutions</h4>
+        <ul>
+          <li><a href="/virtual-com-port-windows/">Virtual COM ports</a></li>
+          <li><a href="/virtual-null-modem/">Virtual null-modem pairs</a></li>
+          <li><a href="/serial-port-splitter/">Serial port splitter</a></li>
+          <li><a href="/serial-to-tcp/">Serial to TCP/IP</a></li>
+          <li><a href="/com0com-alternative/">com0com alternative</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Project</h4>
+        <ul>
+          <li><a href="https://github.com/RahulP5/SerialLoom" rel="noopener">Source code</a></li>
+          <li><a href="https://github.com/RahulP5/SerialLoom/issues" rel="noopener">Report a bug</a></li>
+          <li><a href="https://github.com/RahulP5/SerialLoom/blob/main/SECURITY.md" rel="noopener">Security policy</a></li>
+          <li><a href="https://github.com/RahulP5/SerialLoom/blob/main/LICENSE" rel="noopener">MIT license</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> <a href="https://github.com/RahulP5" rel="noopener">Rahul Pachpind</a>. SerialLoom is open source under the MIT license.</span>
+      <span>Windows is a trademark of the Microsoft group of companies.</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

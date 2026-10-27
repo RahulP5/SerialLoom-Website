@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SerialLoom Guide: Getting Started with Virtual COM Ports on Windows</title>
+<meta name="description" content="Learn to create virtual COM ports, null-modem pairs, split and join serial ports, bridge COM to TCP and monitor serial traffic with SerialLoom on Windows 10 and 11.">
+<link rel="canonical" href="https://www.serialloom.com/docs/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="author" content="Rahul Pachpind">
+<meta name="theme-color" content="#070a14" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f7f8fc" media="(prefers-color-scheme: light)">
+<meta name="color-scheme" content="dark light">
+<link rel="icon" href="/assets/img/logo.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SerialLoom">
+<meta property="og:title" content="SerialLoom Guide: Getting Started with Virtual COM Ports on Windows">
+<meta property="og:description" content="Learn to create virtual COM ports, null-modem pairs, split and join serial ports, bridge COM to TCP and monitor serial traffic with SerialLoom on Windows 10 and 11.">
+<meta property="og:url" content="https://www.serialloom.com/docs/">
+<meta property="og:image" content="https://www.serialloom.com/assets/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SerialLoom: virtual COM ports for Windows with a live visual editor">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SerialLoom Guide: Getting Started with Virtual COM Ports on Windows">
+<meta name="twitter:description" content="Learn to create virtual COM ports, null-modem pairs, split and join serial ports, bridge COM to TCP and monitor serial traffic with SerialLoom on Windows 10 and 11.">
+<meta name="twitter:image" content="https://www.serialloom.com/assets/img/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/css/site.css">
+<script src="/assets/js/site.js" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.serialloom.com/"},{"@type":"ListItem","position":2,"name":"Guide","item":"https://www.serialloom.com/docs/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Getting started with SerialLoom","description":"How to create virtual COM ports, pairs, splits, joins, bridges and buses with SerialLoom on Windows.","url":"https://www.serialloom.com/docs/","datePublished":"2026-10-27","dateModified":"2026-10-27","author":{"@type":"Person","name":"Rahul Pachpind","url":"https://github.com/RahulP5"},"publisher":{"@type":"Person","name":"Rahul Pachpind","url":"https://github.com/RahulP5"},"image":"https://www.serialloom.com/assets/img/og-image.png"}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <nav class="wrap nav" aria-label="Main">
+    <a class="brand" href="/" aria-label="SerialLoom home"><img src="/assets/img/logo.svg" alt="" width="32" height="32">SerialLoom</a>
+    <ul class="nav-links">
+      <li><a href="/#features">Features</a></li>
+      <li><a href="/#use-cases">Use cases</a></li>
+      <li><a href="/docs/" aria-current="page">Guide</a></li>
+      <li><a href="/com0com-alternative/">Compare</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a class="btn btn-ghost btn-sm" href="https://github.com/RahulP5/SerialLoom" rel="noopener" aria-label="SerialLoom on GitHub"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" style="fill:currentColor;stroke:none"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.69 1.25 3.35.96.1-.74.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.18 1.83 1.18 3.09 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg><span>GitHub</span></a>
+      <a class="btn btn-primary btn-sm" href="/download/"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg><span>Download<span class="long"> free</span></span></a>
+    </div>
+    <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><line x1="4" x2="20" y1="7" y2="7"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="17" y2="17"/></svg></button>
+  </nav>
+</header>
+<main id="main">
+<section class="page-hero">
+  <div class="wrap">
+    <ol class="crumbs"><li><a href="/">Home</a></li><li aria-current="page">Guide</li></ol>
+    <h1>Getting started with SerialLoom</h1>
+    <p class="lead">Everything you need to create virtual COM ports and connect serial ports, programs and networks on Windows.</p>
+  </div>
+</section>
+<div class="wrap article">
+  <article class="prose">
+<h2 id="install">Install</h2>
+<p><a href="/download/">Download the installer</a> and run it. It installs SerialLoom and the Microsoft-signed virtual USB controller that virtual ports use. Because the installer is not code-signed yet, SmartScreen may ask you to confirm: choose <em>More info</em> &gt; <em>Run anyway</em>. Requirements: Windows 10 version 1803 or later, or Windows 11, x64.</p>
+
+<h2 id="topology">The topology view</h2>
+<p>SerialLoom opens on the <strong>Topology</strong> view. The left column lists every COM port Windows knows about: built-in ports, USB adapters, Bluetooth serial links and SerialLoom's virtual ports, with what is using each one. The canvas shows your connections as a graph: ports on the outside, and in the middle the <em>hubs</em> that connect them (split, join, bridge or bus). Every link shows live throughput.</p>
+<p>Drag a port onto the canvas to start a split, or onto an existing hub to add it. The toolbar has <em>Split</em>, <em>Join</em>, <em>Bridge</em>, <em>Bus</em> and <em>Virtual pair</em>, and <em>Auto-layout</em> tidies the canvas.</p>
+<figure class="shot reveal">
+  <div class="shot-frame">
+    <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><em>SerialLoom</em></div>
+    <picture>
+      <source media="(prefers-color-scheme: light)" type="image/webp" srcset="/assets/img/topology-light-960.webp 960w, /assets/img/topology-light-1600.webp 1600w, /assets/img/topology-light-2880.webp 2880w" sizes="(min-width: 1200px) 1120px, 100vw">
+      <img src="/assets/img/topology-dark-1600.webp" srcset="/assets/img/topology-dark-960.webp 960w, /assets/img/topology-dark-1600.webp 1600w, /assets/img/topology-dark-2880.webp 2880w" sizes="(min-width: 1200px) 1120px, 100vw" width="1440" height="900" alt="SerialLoom topology view with ports list, hubs and live throughput" loading="lazy" decoding="async">
+    </picture>
+  </div>
+</figure>
+
+<h2 id="virtual">Create a virtual port</h2>
+<p>Open <strong>Virtual ports</strong> in the sidebar and press <strong>New port</strong>. Pick a number such as <code>COM20</code>, or let Windows choose. Windows asks for administrator permission, then the port appears in Device Manager as “USB Serial Device (COM20)”. You can also create virtual ports directly while setting up a hub: choose “New virtual port” as an endpoint. <a href="/virtual-com-port-windows/">More about virtual COM ports</a>.</p>
+
+<h2 id="pair">Virtual null-modem pair</h2>
+<p>Press <strong>Virtual pair</strong>. SerialLoom creates two virtual ports wired together. Open one in each program; what one writes, the other reads. <a href="/virtual-null-modem/">More about null-modem pairs</a>.</p>
+
+<h2 id="split">Split a port</h2>
+<p>Drag a real port, for example <code>COM3</code>, onto the canvas, keep the “New virtual port” outputs (add as many as you need) and press <strong>Create split</strong>. Point each program at one of the new ports. Data from the device reaches every program; data from any program goes to the device. The real port is marked <code>M</code> (master) and runs at the baud rate you set for it. <a href="/serial-port-splitter/">More about splitting</a>.</p>
+
+<h2 id="join">Join ports</h2>
+<p>A <strong>Join</strong> merges several ports into one virtual port, for a program that should receive data from several devices. Choose <em>Join</em>, add the ports to merge, and open the joined virtual port in your program.</p>
+
+<h2 id="bridge">Bridge to COM or TCP</h2>
+<p>A <strong>Bridge</strong> wires two endpoints: COM ↔ COM, COM ↔ TCP server, or COM ↔ TCP client. To share a device on the network, choose your serial port as side A and <em>TCP server</em> <code>0.0.0.0:7000</code> as side B. TCP endpoints have no authentication, so use them on trusted networks only. <a href="/serial-to-tcp/">More about serial to TCP</a>.</p>
+
+<h2 id="bus">Bus</h2>
+<p>On a <strong>Bus</strong>, every endpoint hears every other endpoint, like devices on an RS-485 multidrop line. Use it to connect three or more programs, or to simulate a fieldbus with several device simulators on one PC.</p>
+
+<h2 id="monitor">Traffic monitor</h2>
+<p>Click a hub to open the inspector. It lists each endpoint with bytes sent and received, current throughput and dropped data, and shows the <strong>traffic monitor</strong> below: each chunk of data with its time and source port, in ASCII or hex. Pause the stream to read it, or clear it. From the inspector you can also stop and start the hub, add or remove endpoints, and choose whether it starts when SerialLoom opens.</p>
+<figure class="shot reveal">
+  <div class="shot-frame">
+    <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><em>SerialLoom</em></div>
+    <picture>
+      <source media="(prefers-color-scheme: light)" type="image/webp" srcset="/assets/img/inspector-light-960.webp 960w, /assets/img/inspector-light-1600.webp 1600w, /assets/img/inspector-light-2880.webp 2880w" sizes="(min-width: 1200px) 1120px, 100vw">
+      <img src="/assets/img/inspector-dark-1600.webp" srcset="/assets/img/inspector-dark-960.webp 960w, /assets/img/inspector-dark-1600.webp 1600w, /assets/img/inspector-dark-2880.webp 2880w" sizes="(min-width: 1200px) 1120px, 100vw" width="1440" height="900" alt="SerialLoom inspector with endpoint statistics and the traffic monitor showing NMEA data" loading="lazy" decoding="async">
+    </picture>
+  </div>
+</figure>
+
+<h2 id="baud">Baud rates</h2>
+<p>Programs can open a virtual port at any speed from 300 baud to 12 Mbaud, standard or custom, with any data bits, parity and stop bits. The topology shows the setting each program chose (for example <code>9600 8N1</code>), which helps spot mismatches. Virtual ports always move data at full speed. Real ports use the speed you configure for them in SerialLoom.</p>
+
+<h2 id="background">Running in the background</h2>
+<p>Closing the window keeps SerialLoom running in the notification area, so ports and connections stay open. Click the tray icon to bring the window back. <em>Quit SerialLoom</em> in the icon's menu closes every port. Virtual ports exist while SerialLoom runs and come back with the same numbers the next time it starts; hubs set to start automatically resume too.</p>
+
+<h2 id="remove">Renumber and remove ports</h2>
+<p>Under <strong>Virtual ports</strong>, <em>Change number</em> gives a port a new COM number; connections using the port follow it. Deleting a port removes it from Windows completely and frees its number. Both take one administrator prompt. Uninstalling SerialLoom removes all of its virtual ports.</p>
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3>My program does not list the virtual port</h3>
+<p>Make sure SerialLoom is running (check the notification area). In Device Manager, the port should appear under <em>Ports (COM &amp; LPT)</em> as “USB Serial Device (COMn)”, and the controller as “USBip 3.X Emulated Host Controller” under USB controllers. Some programs only scan ports when they start, so restart them after creating a port. <em>Diagnostics</em> on the Virtual ports page shows what SerialLoom sees.</p>
+<h3>The COM number I want is taken</h3>
+<p>SerialLoom never takes a number that belongs to real hardware, even when that device is unplugged and only its reservation remains. Pick another number, or remove the old device in Device Manager (<em>View &gt; Show hidden devices</em>) first.</p>
+<h3>“Access is denied” when opening a port</h3>
+<p>Another program already has the port open. Use a <a href="/serial-port-splitter/">split</a> to share it.</p>
+<h3>Remote PCs cannot connect to a TCP server</h3>
+<p>Check that the server listens on <code>0.0.0.0</code> (not <code>127.0.0.1</code>) and that Windows Firewall allows SerialLoom on that network.</p>
+<h3>Still stuck?</h3>
+<p>Open an issue on <a href="https://github.com/RahulP5/SerialLoom/issues" rel="noopener">GitHub</a> with your Windows version, SerialLoom version and what you tried. For how SerialLoom works under the hood, read the <a href="https://github.com/RahulP5/SerialLoom/blob/main/docs/ARCHITECTURE.md" rel="noopener">architecture notes</a>.</p>
+  </article>
+  <aside class="aside" aria-label="On this page">
+    <div class="card">
+      <h4>On this page</h4>
+      <ul>
+        <li><a href="#install">Install</a></li>
+        <li><a href="#topology">The topology view</a></li>
+        <li><a href="#virtual">Create a virtual port</a></li>
+        <li><a href="#pair">Virtual null-modem pair</a></li>
+        <li><a href="#split">Split a port</a></li>
+        <li><a href="#join">Join ports</a></li>
+        <li><a href="#bridge">Bridge to COM or TCP</a></li>
+        <li><a href="#bus">Bus</a></li>
+        <li><a href="#monitor">Traffic monitor</a></li>
+        <li><a href="#baud">Baud rates</a></li>
+        <li><a href="#background">Running in the background</a></li>
+        <li><a href="#remove">Renumber and remove ports</a></li>
+        <li><a href="#troubleshooting">Troubleshooting</a></li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Get SerialLoom</h4>
+      <p>Latest <span data-version>v0.1.1</span> for Windows 10 and 11.</p>
+      <a class="btn btn-primary" href="https://github.com/RahulP5/SerialLoom/releases/latest" data-download><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg><span>Download</span></a>
+    </div>
+  </aside>
+</div>
+<section class="section" aria-labelledby="cta-title">
+  <div class="wrap">
+    <div class="cta reveal">
+      <h2 id="cta-title">Weave your serial ports together</h2>
+      <p>Free and open source. One installer, no test mode, no extra drivers to hunt down.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary btn-lg" href="https://github.com/RahulP5/SerialLoom/releases/latest" data-download><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg><span>Download for Windows</span></a>
+        <a class="btn btn-ghost btn-lg" href="https://github.com/RahulP5/SerialLoom" rel="noopener"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" style="fill:currentColor;stroke:none"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.69 1.25 3.35.96.1-.74.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.18 1.83 1.18 3.09 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg><span>View source on GitHub</span></a>
+      </div>
+      <p class="small">Latest <span data-version>v0.1.1</span> · Windows 10 (1803+) and Windows 11, x64 · MIT license</p>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="/"><img src="/assets/img/logo.svg" alt="" width="32" height="32">SerialLoom</a>
+        <p>Free, open-source virtual COM port software for Windows 10 and 11. Create, pair, split, join and bridge serial ports in a live visual editor.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/#features">Features</a></li>
+          <li><a href="/download/">Download</a></li>
+          <li><a href="/docs/">Getting started guide</a></li>
+          <li><a href="/#faq">FAQ</a></li>
+          <li><a href="https://github.com/RahulP5/SerialLoom/releases" rel="noopener">Release notes</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Solutions</h4>
+        <ul>
+          <li><a href="/virtual-com-port-windows/">Virtual COM ports</a></li>
+          <li><a href="/virtual-null-modem/">Virtual null-modem pairs</a></li>
+          <li><a href="/serial-port-splitter/">Serial port splitter</a></li>
+          <li><a href="/serial-to-tcp/">Serial to TCP/IP</a></li>
+          <li><a href="/com0com-alternative/">com0com alternative</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Project</h4>
+        <ul>
+          <li><a href="https://github.com/RahulP5/SerialLoom" rel="noopener">Source code</a></li>
+          <li><a href="https://github.com/RahulP5/SerialLoom/issues" rel="noopener">Report a bug</a></li>
+          <li><a href="https://github.com/RahulP5/SerialLoom/blob/main/SECURITY.md" rel="noopener">Security policy</a></li>
+          <li><a href="https://github.com/RahulP5/SerialLoom/blob/main/LICENSE" rel="noopener">MIT license</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> <a href="https://github.com/RahulP5" rel="noopener">Rahul Pachpind</a>. SerialLoom is open source under the MIT license.</span>
+      <span>Windows is a trademark of the Microsoft group of companies.</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

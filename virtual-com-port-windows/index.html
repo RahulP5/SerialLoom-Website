@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Virtual COM Port for Windows 10 & 11, Free and Open Source | SerialLoom</title>
+<meta name="description" content="Create virtual COM ports on Windows 10 and 11 with SerialLoom. Pick the port number, use it from any program, no test mode or unsigned drivers. Free and open source.">
+<link rel="canonical" href="https://www.serialloom.com/virtual-com-port-windows/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="author" content="Rahul Pachpind">
+<meta name="theme-color" content="#070a14" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f7f8fc" media="(prefers-color-scheme: light)">
+<meta name="color-scheme" content="dark light">
+<link rel="icon" href="/assets/img/logo.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SerialLoom">
+<meta property="og:title" content="Virtual COM Port for Windows 10 &amp; 11, Free and Open Source | SerialLoom">
+<meta property="og:description" content="Create virtual COM ports on Windows 10 and 11 with SerialLoom. Pick the port number, use it from any program, no test mode or unsigned drivers. Free and open source.">
+<meta property="og:url" content="https://www.serialloom.com/virtual-com-port-windows/">
+<meta property="og:image" content="https://www.serialloom.com/assets/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SerialLoom: virtual COM ports for Windows with a live visual editor">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Virtual COM Port for Windows 10 &amp; 11, Free and Open Source | SerialLoom">
+<meta name="twitter:description" content="Create virtual COM ports on Windows 10 and 11 with SerialLoom. Pick the port number, use it from any program, no test mode or unsigned drivers. Free and open source.">
+<meta name="twitter:image" content="https://www.serialloom.com/assets/img/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/css/site.css">
+<script src="/assets/js/site.js" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.serialloom.com/"},{"@type":"ListItem","position":2,"name":"Virtual COM ports","item":"https://www.serialloom.com/virtual-com-port-windows/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Virtual COM ports for Windows 10 and 11","description":"Create virtual COM ports on Windows 10 and 11 with SerialLoom. Pick the port number, use it from any program, no test mode or unsigned drivers. Free and open source.","url":"https://www.serialloom.com/virtual-com-port-windows/","datePublished":"2026-10-27","dateModified":"2026-10-27","author":{"@type":"Person","name":"Rahul Pachpind","url":"https://github.com/RahulP5"},"publisher":{"@type":"Person","name":"Rahul Pachpind","url":"https://github.com/RahulP5"},"image":"https://www.serialloom.com/assets/img/og-image.png","about":{"@type":"SoftwareApplication","name":"SerialLoom","operatingSystem":"Windows 10, Windows 11","applicationCategory":"DeveloperApplication"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How many virtual COM ports can I create?","acceptedAnswer":{"@type":"Answer","text":"As many as you need for your setup. Each virtual port is a separate USB serial device with its own COM number."}},{"@type":"Question","name":"Does a virtual COM port work after a reboot?","acceptedAnswer":{"@type":"Answer","text":"Yes, once SerialLoom is running again. Ports come back with the same COM numbers, and saved connections start automatically when SerialLoom opens."}},{"@type":"Question","name":"Can I name a virtual port COM1 or COM2?","acceptedAnswer":{"@type":"Answer","text":"Yes, if no real hardware owns that number. This helps legacy software that only works with low COM numbers."}},{"@type":"Question","name":"Is it really free for commercial use?","acceptedAnswer":{"@type":"Answer","text":"Yes. SerialLoom is MIT licensed: free to use at work, in a factory, or in a product, with no license keys."}}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <nav class="wrap nav" aria-label="Main">
+    <a class="brand" href="/" aria-label="SerialLoom home"><img src="/assets/img/logo.svg" alt="" width="32" height="32">SerialLoom</a>
+    <ul class="nav-links">
+      <li><a href="/#features">Features</a></li>
+      <li><a href="/#use-cases">Use cases</a></li>
+      <li><a href="/docs/">Guide</a></li>
+      <li><a href="/com0com-alternative/">Compare</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a class="btn btn-ghost btn-sm" href="https://github.com/RahulP5/SerialLoom" rel="noopener" aria-label="SerialLoom on GitHub"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" style="fill:currentColor;stroke:none"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.69 1.25 3.35.96.1-.74.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.18 1.83 1.18 3.09 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg><span>GitHub</span></a>
+      <a class="btn btn-primary btn-sm" href="/download/"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg><span>Download<span class="long"> free</span></span></a>
+    </div>
+    <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><line x1="4" x2="20" y1="7" y2="7"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="17" y2="17"/></svg></button>
+  </nav>
+</header>
+<main id="main">
+<section class="page-hero">
+  <div class="wrap">
+    <ol class="crumbs"><li><a href="/">Home</a></li><li aria-current="page">Virtual COM ports</li></ol>
+    <h1>Virtual COM ports for Windows 10 and 11</h1>
+    <p class="lead">Create serial ports that any Windows program can open, with the COM numbers you choose. No hardware, no test mode, no unsigned drivers.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="https://github.com/RahulP5/SerialLoom/releases/latest" data-download><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg><span>Download for Windows</span></a>
+      <a class="btn btn-ghost" href="/docs/"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></svg><span>Read the guide</span></a>
+    </div>
+  </div>
+</section>
+<div class="wrap article">
+  <article class="prose">
+<h2>What is a virtual COM port?</h2>
+<p>A <strong>virtual COM port</strong> (also called a virtual serial port) is a serial port that exists only in software. To your programs it looks exactly like a physical RS-232 port or a USB-to-serial adapter: it has a name such as <code>COM20</code>, you can open it, set a baud rate, toggle DTR and RTS and read and write bytes. Behind the scenes, SerialLoom decides where those bytes go: to another program, to a real serial device, or across the network.</p>
+<p>Virtual COM ports are useful whenever you need more serial ports than you have, need to connect two programs without a cable, or need to send serial data somewhere a cable cannot reach.</p>
+
+<figure class="shot reveal">
+  <div class="shot-frame">
+    <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><em>SerialLoom</em></div>
+    <picture>
+      <source media="(prefers-color-scheme: light)" type="image/webp" srcset="/assets/img/topology-light-960.webp 960w, /assets/img/topology-light-1600.webp 1600w, /assets/img/topology-light-2880.webp 2880w" sizes="(min-width: 1200px) 1120px, 100vw">
+      <img src="/assets/img/topology-dark-1600.webp" srcset="/assets/img/topology-dark-960.webp 960w, /assets/img/topology-dark-1600.webp 1600w, /assets/img/topology-dark-2880.webp 2880w" sizes="(min-width: 1200px) 1120px, 100vw" width="1440" height="900" alt="Virtual COM ports COM20, COM21, COM22, COM30 and COM31 in the SerialLoom topology editor" loading="lazy" decoding="async">
+    </picture>
+  </div>
+</figure>
+
+<h2>Create a virtual COM port in SerialLoom</h2>
+<ol>
+  <li><a href="/download/">Download SerialLoom</a> and run the installer.</li>
+  <li>Open <strong>Virtual ports</strong> in the sidebar and press <strong>New port</strong>, or <strong>New pair</strong> for two ports wired together.</li>
+  <li>Choose a port number, for example <code>COM20</code>, or let Windows pick the next free one. Windows asks for administrator permission.</li>
+  <li>The port appears in Device Manager under <em>Ports (COM &amp; LPT)</em> as “USB Serial Device (COM20)”. Open it from any program.</li>
+  <li>Connect it on the canvas: split a real port into it, bridge it to TCP, or pair it with another virtual port.</li>
+</ol>
+<p>Need a different number later? Use <strong>Change number</strong> on the port. Connections using the port follow the new name automatically.</p>
+
+<h2 id="how">How SerialLoom creates COM ports without test mode</h2>
+<p>Windows only loads kernel drivers that Microsoft has signed. Many virtual serial port drivers are not, so on 64-bit Windows you would have to turn on test-signing mode, which also means turning off Secure Boot.</p>
+<p>SerialLoom takes a different route. It presents each virtual port to Windows as a software <strong>USB CDC-ACM serial device</strong>, plugged into a bundled virtual USB host controller (<a href="https://github.com/vadimgrn/usbip-win2" rel="noopener">usbip-win2</a>, whose drivers are signed by Microsoft). Windows then loads its own built-in drivers, <code>usbccgp.sys</code> and <code>usbser.sys</code>, exactly as it does for a USB serial adapter.</p>
+<pre><code>Your program ──opens COM20──► usbser.sys            (Windows' built-in USB serial driver)
+                                  │
+                     Virtual USB host controller   (usbip-win2, signed by Microsoft)
+                                  │  loopback only (127.0.0.1)
+                     SerialLoom ──► split, join, pair, bus, TCP…</code></pre>
+<p>The result: real COM ports that work with Secure Boot on, on any Windows 10 (1803 or later) or Windows 11 PC.</p>
+
+<h2>What behaves like a real port</h2>
+<ul>
+  <li><strong>Baud rate and framing:</strong> programs can choose any speed from 300 baud to 12 Mbaud and any data bits, parity and stop bits. SerialLoom shows each program's choice.</li>
+  <li><strong>Timeouts and events:</strong> read and write timeouts and <code>WaitCommEvent</code> work as programs expect.</li>
+  <li><strong>DTR and RTS:</strong> programs can set the modem control lines, and SerialLoom sees when a program opens the port.</li>
+  <li><strong>Speed:</strong> data between virtual ports is not slowed down to the baud rate; it moves at full speed.</li>
+</ul>
+
+<h2>Port numbers that stay put</h2>
+<p>When you ask for a specific number, SerialLoom claims it in Windows' COM port database, the same way Device Manager's <em>Port Settings &gt; Advanced</em> does. Windows remembers it, so the port comes back with the same number every time SerialLoom starts. SerialLoom never takes a number that belongs to real hardware, even if that device is unplugged at the moment.</p>
+<p>Virtual ports exist while SerialLoom is running. Closing the window keeps SerialLoom in the notification area, so the ports stay open; <em>Quit SerialLoom</em> in the tray menu closes them. Deleting a port removes it from Windows completely, and uninstalling SerialLoom removes all of its ports.</p>
+
+<h2>Works with your software</h2>
+<p>Because Windows sees a normal USB serial device, anything that talks to COM ports works: terminal programs such as PuTTY, Tera Term, RealTerm and CoolTerm; the Arduino IDE and PlatformIO; PLC and CNC software; GPS and navigation apps; and your own code using the Win32 serial API, .NET <code>System.IO.Ports.SerialPort</code>, pySerial, Node SerialPort or Rust <code>serialport</code>.</p>
+<h2 id="faq">Questions</h2>
+<div class="faq">
+  <details>
+    <summary>How many virtual COM ports can I create?</summary>
+    <div class="answer"><p>As many as you need for your setup. Each virtual port is a separate USB serial device with its own COM number.</p></div>
+  </details>
+  <details>
+    <summary>Does a virtual COM port work after a reboot?</summary>
+    <div class="answer"><p>Yes, once SerialLoom is running again. Ports come back with the same COM numbers, and saved connections start automatically when SerialLoom opens.</p></div>
+  </details>
+  <details>
+    <summary>Can I name a virtual port COM1 or COM2?</summary>
+    <div class="answer"><p>Yes, if no real hardware owns that number. This helps legacy software that only works with low COM numbers.</p></div>
+  </details>
+  <details>
+    <summary>Is it really free for commercial use?</summary>
+    <div class="answer"><p>Yes. SerialLoom is MIT licensed: free to use at work, in a factory, or in a product, with no license keys.</p></div>
+  </details>
+</div>
+  </article>
+  <aside class="aside" aria-label="More">
+    <div class="card">
+      <h4>Get SerialLoom</h4>
+      <p>Free and open source for Windows 10 and 11. Latest <span data-version>v0.1.1</span>.</p>
+      <a class="btn btn-primary" href="https://github.com/RahulP5/SerialLoom/releases/latest" data-download><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg><span>Download</span></a>
+    </div>
+    <div class="card">
+      <h4>Related</h4>
+      <ul>
+        <li><a href="/virtual-null-modem/">Virtual null-modem pairs</a></li>
+        <li><a href="/serial-port-splitter/">Serial port splitter</a></li>
+        <li><a href="/serial-to-tcp/">Serial to TCP/IP</a></li>
+        <li><a href="/com0com-alternative/">com0com alternative</a></li>
+        <li><a href="/docs/">Getting started guide</a></li>
+      </ul>
+    </div>
+  </aside>
+</div>
+<section class="section" aria-labelledby="cta-title">
+  <div class="wrap">
+    <div class="cta reveal">
+      <h2 id="cta-title">Weave your serial ports together</h2>
+      <p>Free and open source. One installer, no test mode, no extra drivers to hunt down.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary btn-lg" href="https://github.com/RahulP5/SerialLoom/releases/latest" data-download><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg><span>Download for Windows</span></a>
+        <a class="btn btn-ghost btn-lg" href="https://github.com/RahulP5/SerialLoom" rel="noopener"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" style="fill:currentColor;stroke:none"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.69 1.25 3.35.96.1-.74.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.18 1.83 1.18 3.09 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg><span>View source on GitHub</span></a>
+      </div>
+      <p class="small">Latest <span data-version>v0.1.1</span> · Windows 10 (1803+) and Windows 11, x64 · MIT license</p>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="/"><img src="/assets/img/logo.svg" alt="" width="32" height="32">SerialLoom</a>
+        <p>Free, open-source virtual COM port software for Windows 10 and 11. Create, pair, split, join and bridge serial ports in a live visual editor.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/#features">Features</a></li>
+          <li><a href="/download/">Download</a></li>
+          <li><a href="/docs/">Getting started guide</a></li>
+          <li><a href="/#faq">FAQ</a></li>
+          <li><a href="https://github.com/RahulP5/SerialLoom/releases" rel="noopener">Release notes</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Solutions</h4>
+        <ul>
+          <li><a href="/virtual-com-port-windows/">Virtual COM ports</a></li>
+          <li><a href="/virtual-null-modem/">Virtual null-modem pairs</a></li>
+          <li><a href="/serial-port-splitter/">Serial port splitter</a></li>
+          <li><a href="/serial-to-tcp/">Serial to TCP/IP</a></li>
+          <li><a href="/com0com-alternative/">com0com alternative</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Project</h4>
+        <ul>
+          <li><a href="https://github.com/RahulP5/SerialLoom" rel="noopener">Source code</a></li>
+          <li><a href="https://github.com/RahulP5/SerialLoom/issues" rel="noopener">Report a bug</a></li>
+          <li><a href="https://github.com/RahulP5/SerialLoom/blob/main/SECURITY.md" rel="noopener">Security policy</a></li>
+          <li><a href="https://github.com/RahulP5/SerialLoom/blob/main/LICENSE" rel="noopener">MIT license</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> <a href="https://github.com/RahulP5" rel="noopener">Rahul Pachpind</a>. SerialLoom is open source under the MIT license.</span>
+      <span>Windows is a trademark of the Microsoft group of companies.</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
