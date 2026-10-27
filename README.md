@@ -40,19 +40,6 @@ Two places still name the version in the HTML and are worth updating now and the
 npx serve .        # or: python -m http.server 8080
 ```
 
-## Deploy on GitHub Pages
+Open http://localhost:3000 (or :8080 with Python). Opening `index.html` directly from disk does not work, because links start from the site root.
 
-1. Push this folder to a GitHub repository (for example `RahulP5/serialloom.com`).
-2. In the repository: *Settings > Pages > Build and deployment*, choose *Deploy from a branch*, branch `main`, folder `/ (root)`.
-3. *Custom domain*: `www.serialloom.com` (already in `CNAME`), then tick *Enforce HTTPS* once the certificate is ready.
-4. At your DNS provider:
-   - `CNAME` record: `www` → `rahulp5.github.io`
-   - `A` records for the bare domain `serialloom.com`: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153` (GitHub then redirects it to `www`)
-
-## Getting found on Google
-
-1. Add the site to [Google Search Console](https://search.google.com/search-console) as a *Domain* property (verify with a DNS TXT record).
-2. Submit `https://www.serialloom.com/sitemap.xml` under *Sitemaps*.
-3. Do the same in [Bing Webmaster Tools](https://www.bing.com/webmasters) (it can import from Search Console). Bing also feeds DuckDuckGo and others.
-4. Link to the site from places people already look: the SerialLoom GitHub repo's *About > Website* field and README, the release notes, and answers on forums or Stack Overflow where SerialLoom solves the question. Links like these matter more for ranking than anything on the page itself.
-5. Add GitHub topics to the SerialLoom repo, such as `virtual-com-port`, `virtual-serial-port`, `serial-port`, `com-port`, `null-modem`, `windows`.
+Changes pushed to `main` go live on www.serialloom.com within a minute or two.
