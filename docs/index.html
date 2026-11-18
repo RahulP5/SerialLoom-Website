@@ -34,7 +34,7 @@
 <link rel="stylesheet" href="/assets/css/site.css">
 <script src="/assets/js/site.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.serialloom.com/"},{"@type":"ListItem","position":2,"name":"Guide","item":"https://www.serialloom.com/docs/"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Getting started with SerialLoom","description":"How to create virtual COM ports, pairs, splits, joins, bridges and buses with SerialLoom on Windows.","url":"https://www.serialloom.com/docs/","datePublished":"2026-10-27","dateModified":"2026-10-27","author":{"@type":"Person","name":"Rahul Pachpind","url":"https://github.com/RahulP5"},"publisher":{"@type":"Person","name":"Rahul Pachpind","url":"https://github.com/RahulP5"},"image":"https://www.serialloom.com/assets/img/og-image.png"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Getting started with SerialLoom","description":"How to create virtual COM ports, pairs, splits, joins, bridges and buses with SerialLoom on Windows.","url":"https://www.serialloom.com/docs/","datePublished":"2026-10-27","dateModified":"2026-11-18","author":{"@type":"Person","name":"Rahul Pachpind","url":"https://github.com/RahulP5"},"publisher":{"@type":"Person","name":"Rahul Pachpind","url":"https://github.com/RahulP5"},"image":"https://www.serialloom.com/assets/img/og-image.png"}</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -66,7 +66,7 @@
 <div class="wrap article">
   <article class="prose">
 <h2 id="install">Install</h2>
-<p><a href="/download/">Download the installer</a> and run it. It installs SerialLoom and the Microsoft-signed virtual USB controller that virtual ports use. Because the installer is not code-signed yet, SmartScreen may ask you to confirm: choose <em>More info</em> &gt; <em>Run anyway</em>. Requirements: Windows 10 version 1803 or later, or Windows 11, x64.</p>
+<p><a href="/download/">Download the installer</a> and run it. It installs SerialLoom and the Microsoft-signed virtual USB controller that virtual ports use. Because the installer is not code-signed yet, SmartScreen may ask you to confirm: choose <em>More info</em> &gt; <em>Run anyway</em>. Requirements: Windows 10 version 1803 or later, or Windows 11, x64. The installer also sets up <a href="#helper">SerialLoom Helper</a>, so creating, renumbering and removing virtual ports does not ask for administrator permission each time.</p>
 
 <h2 id="topology">The topology view</h2>
 <p>SerialLoom opens on the <strong>Topology</strong> view. The left column lists every COM port Windows knows about: built-in ports, USB adapters, Bluetooth serial links and SerialLoom's virtual ports, with what is using each one. The canvas shows your connections as a graph: ports on the outside, and in the middle the <em>hubs</em> that connect them (split, join, bridge or bus). Every link shows live throughput.</p>
@@ -82,7 +82,7 @@
 </figure>
 
 <h2 id="virtual">Create a virtual port</h2>
-<p>Open <strong>Virtual ports</strong> in the sidebar and press <strong>New port</strong>. Pick a number such as <code>COM20</code>, or let Windows choose. Windows asks for administrator permission, then the port appears in Device Manager as “USB Serial Device (COM20)”. You can also create virtual ports directly while setting up a hub: choose “New virtual port” as an endpoint. <a href="/virtual-com-port-windows/">More about virtual COM ports</a>.</p>
+<p>Open <strong>Virtual ports</strong> in the sidebar and press <strong>New port</strong>. Pick a number such as <code>COM20</code>, or let Windows choose. The port appears in Device Manager as “USB Serial Device (COM20)”; <a href="#helper">SerialLoom Helper</a> creates it without an administrator prompt. You can also create virtual ports directly while setting up a hub: choose “New virtual port” as an endpoint. <a href="/virtual-com-port-windows/">More about virtual COM ports</a>.</p>
 
 <h2 id="pair">Virtual null-modem pair</h2>
 <p>Press <strong>Virtual pair</strong>. SerialLoom creates two virtual ports wired together. Open one in each program; what one writes, the other reads. <a href="/virtual-null-modem/">More about null-modem pairs</a>.</p>
@@ -115,10 +115,40 @@
 <p>Programs can open a virtual port at any speed from 300 baud to 12 Mbaud, standard or custom, with any data bits, parity and stop bits. The topology shows the setting each program chose (for example <code>9600 8N1</code>), which helps spot mismatches. Virtual ports always move data at full speed. Real ports use the speed you configure for them in SerialLoom.</p>
 
 <h2 id="background">Running in the background</h2>
-<p>Closing the window keeps SerialLoom running in the notification area, so ports and connections stay open. Click the tray icon to bring the window back. <em>Quit SerialLoom</em> in the icon's menu closes every port. Virtual ports exist while SerialLoom runs and come back with the same numbers the next time it starts; hubs set to start automatically resume too.</p>
+<p>Closing the window keeps SerialLoom running in the notification area, so ports and connections stay open. Click the tray icon to bring the window back. <em>Quit SerialLoom</em> in the icon's menu closes every port. Virtual ports exist while SerialLoom runs and come back with the same numbers the next time it starts; hubs set to start automatically resume too. To have ports ready after every restart, turn on <em>Settings &gt; Running in the background &gt; Start SerialLoom in the background when I sign in to Windows</em>.</p>
 
 <h2 id="remove">Renumber and remove ports</h2>
-<p>Under <strong>Virtual ports</strong>, <em>Change number</em> gives a port a new COM number; connections using the port follow it. Deleting a port removes it from Windows completely and frees its number. Both take one administrator prompt. Uninstalling SerialLoom removes all of its virtual ports.</p>
+<p>Under <strong>Virtual ports</strong>, <em>Change number</em> gives a port a new COM number; connections using the port follow it. Deleting a port removes it from Windows completely and frees its number. SerialLoom Helper does both without an administrator prompt; without the helper, Windows asks each time. Uninstalling SerialLoom removes all of its virtual ports.</p>
+
+<h2 id="helper">Administrator permission</h2>
+<p>Creating, renumbering and removing virtual ports changes Windows device settings, which needs administrator rights. <strong>SerialLoom Helper</strong>, a small Windows service the installer sets up, makes these changes for SerialLoom so Windows does not ask every time. It starts only when needed and stops itself after 10 idle minutes.</p>
+<p>The helper can only create, renumber and remove SerialLoom's own ports. It cannot install drivers, change other devices or take a COM number that belongs to real hardware. <em>Settings &gt; Administrator permission</em> shows whether it is installed and can remove it; Windows then asks for each change instead. On a shared PC, note that with the helper installed any signed-in user can create and remove SerialLoom ports through SerialLoom. <a href="https://github.com/RahulP5/SerialLoom/blob/main/docs/AUTOMATION.md#serialloom-helper" rel="noopener">How the helper is protected</a>.</p>
+
+<h2 id="automation">Automation and command line</h2>
+<p>Test scripts, build pipelines and your own tools can control SerialLoom: create a virtual null-modem pair before a test and delete it afterwards, connect a real device to a virtual port, or start and stop connections. Every change shows up in the SerialLoom window right away.</p>
+<ol>
+  <li>Turn on <em>Settings &gt; Automation &gt; Allow other programs to control SerialLoom</em>. It is off by default, and only programs running under your own Windows account can connect.</li>
+  <li>Run <code>serialloom-cli</code>, installed next to SerialLoom (usually <code>C:\Program Files\SerialLoom\serialloom-cli.exe</code>), from a normal terminal, not an administrator one. If SerialLoom is not running, the CLI starts it in the background.</li>
+</ol>
+<pre><code>serialloom-cli status                      Check that SerialLoom can be reached
+serialloom-cli pair [COMa] [COMb]          Create a virtual null-modem pair, print its ports
+serialloom-cli list                        List connections
+serialloom-cli start|stop &lt;connection&gt;     Start or stop a connection
+serialloom-cli delete &lt;connection&gt;         Delete it and the virtual ports it created
+serialloom-cli create-port &lt;COMn|COM#&gt;...  Create unconnected virtual ports
+serialloom-cli renumber &lt;COMold&gt; &lt;COMnew&gt;  Give a virtual port another number
+serialloom-cli send &lt;json&gt;                 Send any API request, e.g. a bridge to a real device</code></pre>
+<p>A test run with its own pair, in PowerShell:</p>
+<pre><code>$cli = "C:\Program Files\SerialLoom\serialloom-cli.exe"
+$a, $b = (&amp; $cli pair) -split ' '     # e.g. COM21 COM22
+try {
+    pytest tests/serial --port-a $a --port-b $b
+} finally {
+    &amp; $cli delete $a
+}</code></pre>
+<p><code>&lt;connection&gt;</code> is a connection's name or one of its COM ports, and <code>COM#</code> means “the next free number”. Exit codes: <code>0</code> success, <code>1</code> the command failed, <code>2</code> bad usage, <code>3</code> SerialLoom not reachable. Add <code>--json</code> for output that scripts can parse.</p>
+<p><code>pair</code> always creates two new virtual ports. To give a program access to a real device, for example a USB adapter on <code>COM6</code>, create a <a href="#bridge">bridge</a> or a <a href="#split">split</a> with <code>serialloom-cli send</code>. On test benches and CI machines, run the test runner as the signed-in user that runs SerialLoom, not as a service account.</p>
+<p>The <a href="https://github.com/RahulP5/SerialLoom/blob/main/docs/AUTOMATION.md" rel="noopener">automation reference</a> has the full command list, ready-made batch, PowerShell and Python examples, connecting real hardware, test bench setup, and the JSON protocol for using the API directly from any language.</p>
 
 <h2 id="troubleshooting">Troubleshooting</h2>
 <h3>My program does not list the virtual port</h3>
@@ -129,6 +159,8 @@
 <p>Another program already has the port open. Use a <a href="/serial-port-splitter/">split</a> to share it.</p>
 <h3>Remote PCs cannot connect to a TCP server</h3>
 <p>Check that the server listens on <code>0.0.0.0</code> (not <code>127.0.0.1</code>) and that Windows Firewall allows SerialLoom on that network.</p>
+<h3><code>serialloom-cli</code> says SerialLoom cannot be reached</h3>
+<p>Exit code <code>3</code> usually means <em>Settings &gt; Automation</em> is off, or the command ran in an administrator terminal while SerialLoom was not running (the CLI never starts SerialLoom with administrator rights). The CLI also only reaches SerialLoom running under the same Windows account. Run <code>serialloom-cli status</code> from a normal terminal to check.</p>
 <h3>Still stuck?</h3>
 <p>Open an issue on <a href="https://github.com/RahulP5/SerialLoom/issues" rel="noopener">GitHub</a> with your Windows version, SerialLoom version and what you tried. For how SerialLoom works under the hood, read the <a href="https://github.com/RahulP5/SerialLoom/blob/main/docs/ARCHITECTURE.md" rel="noopener">architecture notes</a>.</p>
   </article>
@@ -148,12 +180,14 @@
         <li><a href="#baud">Baud rates</a></li>
         <li><a href="#background">Running in the background</a></li>
         <li><a href="#remove">Renumber and remove ports</a></li>
+        <li><a href="#helper">Administrator permission</a></li>
+        <li><a href="#automation">Automation and command line</a></li>
         <li><a href="#troubleshooting">Troubleshooting</a></li>
       </ul>
     </div>
     <div class="card">
       <h4>Get SerialLoom</h4>
-      <p>Latest <span data-version>v0.1.1</span> for Windows 10 and 11.</p>
+      <p>Latest <span data-version>v0.2.0</span> for Windows 10 and 11.</p>
       <a class="btn btn-primary" href="https://github.com/RahulP5/SerialLoom/releases/latest" data-download><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg><span>Download</span></a>
     </div>
   </aside>
@@ -167,7 +201,7 @@
         <a class="btn btn-primary btn-lg" href="https://github.com/RahulP5/SerialLoom/releases/latest" data-download><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg><span>Download for Windows</span></a>
         <a class="btn btn-ghost btn-lg" href="https://github.com/RahulP5/SerialLoom" rel="noopener"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" style="fill:currentColor;stroke:none"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.69 1.25 3.35.96.1-.74.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.18 1.83 1.18 3.09 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg><span>View source on GitHub</span></a>
       </div>
-      <p class="small">Latest <span data-version>v0.1.1</span> · Windows 10 (1803+) and Windows 11, x64 · MIT license</p>
+      <p class="small">Latest <span data-version>v0.2.0</span> · Windows 10 (1803+) and Windows 11, x64 · MIT license</p>
     </div>
   </div>
 </section>

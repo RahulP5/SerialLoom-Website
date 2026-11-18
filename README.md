@@ -32,7 +32,7 @@ sitemap.xml, robots.txt    for search engines
 
 Download buttons and version labels update themselves: `site.js` asks the GitHub API for the latest release and points the buttons at its `*_x64-setup.exe`. If that request fails, the buttons still go to the latest release page.
 
-Two places still name the version in the HTML and are worth updating now and then: `softwareVersion` in the structured data of `index.html` and `download/index.html`, and the fallback text `v0.1.1` inside `data-version` elements.
+Two places still name the version in the HTML and are worth updating now and then: `softwareVersion` in the structured data of `index.html` and `download/index.html`, and the fallback text `v0.2.0` inside `data-version` elements.
 
 ## Preview locally
 
